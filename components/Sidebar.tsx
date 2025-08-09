@@ -39,7 +39,7 @@ const Sidebar = ({ fullName, email, avatar }: Props) => {
       <nav className="sidebar-nav">
         <ul className="flex flex-1 flex-col gap-3">
           {navItems?.map(({ url, icon, name }) => {
-          const normalizedPath = pathname.toLowerCase();
+          const normalizedPath = pathname.toLowerCase() ?? "";
           const normalizedUrl = url.toLowerCase();
 
           const isActive =

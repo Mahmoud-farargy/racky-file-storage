@@ -72,7 +72,7 @@ const MobileNavigation = ({
           <nav className="mobile-nav">
             <ul className="mobile-nav-list">
               {navItems?.map(({ url, icon, name }) => {
-              const normalizedPath = pathname.toLowerCase();
+              const normalizedPath = pathname.toLowerCase() ?? "";
               const normalizedUrl = url.toLowerCase();
 
               const isActive =
