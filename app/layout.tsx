@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import ProgressBar from "@/components/ProgressBar";
 import "./globals.css";
+import Head from "next/head";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -22,6 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        {/* Dynamic theme-color for mobile */}
+        <meta name="theme-color" content="#FA7275" />
+      </Head>
       <body
         className={`${poppins.variable} --font-poppins antialiased`}
       >
