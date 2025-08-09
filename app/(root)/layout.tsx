@@ -5,6 +5,8 @@ import { redirect } from "next/navigation"
 import { Toaster } from "@/components/ui/toaster"
 import { getCurrentUserCached } from "@/lib/getCurrentUserCached"
 
+export const dynamic = 'force-dynamic'
+
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   const currentUser = await getCurrentUserCached()
 
