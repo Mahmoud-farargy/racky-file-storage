@@ -72,13 +72,10 @@ const MobileNavigation = ({
           <nav className="mobile-nav">
             <ul className="mobile-nav-list">
               {navItems?.map(({ url, icon, name }) => {
-              const normalizedPath = pathname.toLowerCase() ?? "";
-              const normalizedUrl = url.toLowerCase();
+                const normalizedPath = (pathname ?? "").split("/")?.[1]?.toLowerCase() ?? ""
+                const normalizedUrl = url.toLowerCase().replace(/^\//, "")
 
-              const isActive =
-                normalizedUrl === "/"
-                  ? normalizedPath === "/"
-                  : normalizedPath.startsWith(normalizedUrl);
+                const isActive = normalizedPath === normalizedUrl
                   
                 return (
                   <li key={name} className="lg:w-full p-0">
@@ -88,6 +85,7 @@ const MobileNavigation = ({
                         "mobile-nav-item",
                         isActive && "shad-active"
                       )}
+                      onClick={() => setOpen(false)}
                     >
                       <Image
                         src={icon}

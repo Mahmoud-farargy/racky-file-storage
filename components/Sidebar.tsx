@@ -39,22 +39,19 @@ const Sidebar = ({ fullName, email, avatar }: Props) => {
       <nav className="sidebar-nav">
         <ul className="flex flex-1 flex-col gap-3">
           {navItems?.map(({ url, icon, name }) => {
-          const normalizedPath = pathname.toLowerCase() ?? "";
-          const normalizedUrl = url.toLowerCase();
+            const normalizedPath = (pathname ?? "").split("/")?.[1]?.toLowerCase() ?? ""
+            const normalizedUrl = url.toLowerCase().replace(/^\//, "")
 
-          const isActive =
-            normalizedUrl === "/"
-              ? normalizedPath === "/"
-              : normalizedPath.startsWith(normalizedUrl);
+            const isActive = normalizedPath === normalizedUrl
 
-          const hrefWithParams = currentQuery && url !== "/"
-            ? `${url}?${currentQuery}`
-            : url;
+            const hrefWithParams = currentQuery && url !== "/"
+              ? `${url}?${currentQuery}`
+              : url;
             return (
               <li key={name} className="lg:w-full p-0">
                 <Link
                   href={hrefWithParams}
-                  className={cn("sidebar-nav-item", isActive && "shad-active")}
+                  className={cn("sidebar-nav-item transition-colors duration-100 hover:bg-brand/10", isActive && "shad-active")}
                 >
                   <Image
                     src={icon}
