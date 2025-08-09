@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import ProgressBar from "@/components/progressBar";
+import ProgressBar from "@/components/ProgressBar";
 import "./globals.css";
 
 const poppins = Poppins({
