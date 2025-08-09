@@ -12,6 +12,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Racky",
   description: "Store anything and share it!",
+  themeColor: "#FA7275"
 };
 
 export default function RootLayout({
